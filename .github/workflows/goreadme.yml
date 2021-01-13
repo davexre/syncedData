@@ -1,9 +1,10 @@
 on:
+  workflow_dispatch:
+  pull_request_target:
+    branches: [master]
   push:
     branches: [master]
   pull_request:
-    branches: [master]
-  workflow_dispatch:
     branches: [master]
 jobs:
     goreadme:
