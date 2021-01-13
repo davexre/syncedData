@@ -8,6 +8,7 @@ import (
 
 // Counter provides a simple counting interface that's made thread safe through
 // use of a Mutex. Several methods are implemented to do typical functions.
+//
 // Use:
 //
 // 	include "fmt"
