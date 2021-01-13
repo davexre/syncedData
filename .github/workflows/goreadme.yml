@@ -3,6 +3,8 @@ on:
     branches: [master]
   pull_request:
     branches: [master]
+  workflow_dispatch:
+    branches: [master]
 jobs:
     goreadme:
         runs-on: ubuntu-latest
