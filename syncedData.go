@@ -1,4 +1,4 @@
-// syncedData implements simple data types that are protected for concurrent use. Currently, the
+// Package synceddata implements simple data types that are protected for concurrent use. Currently, the
 // package only contains a simple Counter, but will be extended in the future.
 //
 // Counter
@@ -9,18 +9,23 @@
 // Use:
 //
 // 	include "fmt"
-// 	include "github.com/davexre/syncedData"
+// 	include "github.com/davexre/synceddata"
 //
 // 	func main() {
-// 		var myCounter syncedData.Counter
+// 		var myCounter synceddata.Counter
 //
 // 		myCounter.Incr()
 // 		myCounter.Incr()
 // 		myCounter.Decr()
 //
-// 		fmt.Println("Who's number %v?", myCounter.Read())
+// 		fmt.Printf("Who's number %v?\n", myCounter.Read())
+//
+//		myCounter.Set(6)
+//		myCounter.Incr()
+//
+//		fmt.Printf("%v is my lucky number!\n", myCounter.Read())
 // 	}
-package syncedData
+package synceddata
 
 import (
 	"sync"
@@ -49,4 +54,10 @@ func (c *Counter) Read() int {
 	c.m.Lock()
 	defer c.m.Unlock()
 	return c.count
+}
+
+func (c *Counter) Set(i int) {
+	c.m.Lock()
+	c.count = i
+	c.m.Unlock()
 }
