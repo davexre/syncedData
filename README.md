@@ -1,6 +1,6 @@
 # synceddata
 
-[![GoDoc](https://img.shields.io/badge/pkg.go.dev-doc-blue)](http://pkg.go.dev/github.com/davexre/syncedData)
+[![GoDoc](https://img.shields.io/badge/pkg.go.dev-doc-blue)](http://pkg.go.dev/github.com/davexre/synceddata)
 
 Package synceddata implements simple data types that are protected for concurrent use. Currently, the
 package only contains a simple Counter, but will be extended in the future.
