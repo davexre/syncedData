@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func testCounter(t *testing.T) {
+func TestCounter(t *testing.T) {
 	assert := assert.New(t)
 	var myCounter Counter
 
