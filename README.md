@@ -1,8 +1,8 @@
-# syncedData
+# synceddata
 
 [![GoDoc](https://img.shields.io/badge/pkg.go.dev-doc-blue)](http://pkg.go.dev/github.com/davexre/syncedData)
 
-syncedData implements simple data types that are protected for concurrent use. Currently, the
+Package synceddata implements simple data types that are protected for concurrent use. Currently, the
 package only contains a simple Counter, but will be extended in the future.
 
 ## Counter
@@ -14,16 +14,21 @@ Use:
 
 ```go
 include "fmt"
-include "github.com/davexre/syncedData"
+include "github.com/davexre/synceddata"
 
 func main() {
-	var myCounter syncedData.Counter
+	var myCounter synceddata.Counter
 
 	myCounter.Incr()
 	myCounter.Incr()
 	myCounter.Decr()
 
-	fmt.Println("Who's number %!(NOVERB)v?", myCounter.Read())
+	fmt.Printf("Who's number %!(NOVERB)v?\n", myCounter.Read())
+
+	myCounter.Set(6)
+	myCounter.Incr()
+
+	fmt.Printf("%!(NOVERB)v is my lucky number!\n", myCounter.Read())
 }
 ```
 
